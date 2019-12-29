@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModels="clr-namespace:ExamSystemWithoutPrism.ViewModel"
+                    xmlns:view="clr-namespace:ExamSystemWithoutPrism.Views">
+    <DataTemplate x:Key="QuestionView" DataType="{x:Type viewModels:QuestionsViewModel}">
+        <view:QuestionsView/>
+    </DataTemplate>
+    <DataTemplate x:Key="UserDetailsView" DataType="{x:Type viewModels:UserDetailsViewModel}">
+        <view:UserDetails/>
+    </DataTemplate>
+    <DataTemplate x:Key="QuestionAnswerViewContainer" DataType="{x:Type viewModels:QuestionAnswerViewContainerViewModel}">
+        <view:QuestionAnswerViewContainer/>
+    </DataTemplate>
+    <DataTemplate x:Key="QuestionsView" DataType="{x:Type viewModels:QuestionsViewModel}">
+        <view:QuestionsView/>
+    </DataTemplate>
+    <DataTemplate x:Key="ReviewView" DataType="{x:Type viewModels:ReviewViewModel}">
+        <view:ReviewView/>
+    </DataTemplate>
+    <DataTemplate x:Key="ResultView" DataType="{x:Type viewModels:ResultViewModel}">
+        <view:ResultView/>
+    </DataTemplate>
+    <DataTemplate x:Key="RadioButonTemplate">
+        <RadioButton Content="{Binding OptionText}" VerticalAlignment="Top" HorizontalAlignment="Left" IsChecked="{Binding IsOptionSelected}"/>
+    </DataTemplate>
+    <DataTemplate x:Key="CheckBoxTemplate">
+        <CheckBox Content="{Binding OptionText}" VerticalAlignment="Top" HorizontalAlignment="Left" IsChecked="{Binding IsOptionSelected}"/>
+    </DataTemplate>
+</ResourceDictionary>

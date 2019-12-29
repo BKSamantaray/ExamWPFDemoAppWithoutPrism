@@ -1,0 +1,121 @@
+{
+  "Questions": [
+    {
+      "Question": "Which of the following is correct about variable naming conventions in C#?",
+      "Options": [
+        "A name must begin with a letter that could be followed by a sequence of letters, digits (0 - 9) or underscore",
+        "The first character in an identifier cannot be a digit.",
+        "Both of the above.",
+        "None of the above."
+      ],
+      "OptionType": "Option",
+      "Answer": "C"
+    },
+    {
+      "Question": "Which of the following is correct about value type variables in C#?",
+      "Options": [
+        "The value types directly contain data.",
+        "int, char, and float, which stores numbers, alphabets, and floating point numbers, respectively are value types.",
+        "When you declare an int type, the system allocates memory to store the value.",
+        "All of the above."
+      ],
+      "OptionType": "Option",
+      "Answer": "D"
+    },
+    {
+      "Question": "Which of the following converts a floating point or integer type to a decimal type in C#?",
+      "Options": [
+        "ToDecimal",
+        "ToDouble",
+        "ToInt16",
+        "ToInt32"
+      ],
+      "OptionType": "Option",
+      "Answer": "A"
+    },
+    {
+      "Question": "Which of the following operator returns the size of a data type in C#?",
+      "Options": [
+        "sizeof",
+        "typeof",
+        "&</a>",
+        "*"
+      ],
+      "OptionType": "Option",
+      "Answer": "A"
+    },
+    {
+      "Question": "Which of the following method copies the actual value of an argument into the formal parameter of the function?",
+      "Options": [
+        "Value parameters",
+        "Reference parameters",
+        "Output parameters",
+        "None of the above."
+      ],
+      "OptionType": "Option",
+      "Answer": "A"
+    },
+    {
+      "Question": "Which of the following property of Array class in C# gets a 32-bit integer, the total number of elements in all the dimensions of the Array?",
+      "Options": [
+        "Rank",
+        "LongLength",
+        "Length",
+        "None of the above"
+      ],
+      "OptionType": "Option",
+      "Answer": "C"
+    },
+    {
+      "Question": "Which of the following is the correct about class constructor?",
+      "Options": [
+        "A class constructor is a special member function of a class that is executed whenever we create new objects of that class",
+        "A constructor has exactly the same name as that of class and it does not have any return type",
+        "Both of the above",
+        "None of the above"
+      ],
+      "OptionType": "Option",
+      "Answer": "C"
+    },
+    {
+      "Question": "Dynamic polymorphism is implemented by abstract classes and virtual functions.",
+      "Options": [
+        "True",
+        "False"
+      ],
+      "OptionType": "Option",
+      "Answer": "A"
+    },
+    {
+      "Question": "Which of the following preprocessor directive defines a sequence of characters as symbol in C#?",
+      "Options": [
+        "define",
+        "undef",
+        "region",
+        "endregion"
+      ],
+      "OptionType": "Option",
+      "Answer": "A"
+    },
+    {
+      "Question": "User-defined exception classes are derived from the ApplicationException class in C#?",
+      "Options": [
+        "True",
+        "False"
+      ],
+      "OptionType": "Option",
+      "Answer": "A"
+    },
+    {
+      "Question": "Which of the following preprocessor directives defines a region in Visual Studio editor?",
+      "Options": [
+        "define",
+        "undef",
+        "region",
+        "endregion"
+      ],
+      "OptionType": "Select",
+      "Answer": "A"
+    }
+  ]
+}
