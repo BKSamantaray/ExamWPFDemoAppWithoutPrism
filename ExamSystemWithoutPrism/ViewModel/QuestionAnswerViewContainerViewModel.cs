@@ -51,7 +51,16 @@ namespace ExamSystemWithoutPrism.ViewModel
             _resultViewModel.QuestionAnswerVModelMessagePublished += QuestionAnswerVModelMessagePublished;
             _reviewViewModel = new ReviewViewModel();
             _reviewViewModel.QuestionAnswerVModelMessagePublished += QuestionAnswerVModelMessagePublished;
+            _reviewViewModel.ReviewQuestionSelected += ReviewViewModel_ReviewQuestionSelected;
             SelectedViewModel = _questionsViewModel as IQuestionAnswerViewModel;
+        }
+
+        private void ReviewViewModel_ReviewQuestionSelected(object sender, int e)
+        {
+            if (e > 0 && _questionsViewModel != null)
+            {
+                _questionsViewModel.LoadQuestionWithOptions(e - 1);
+            }
         }
 
         private void QuestionAnswerVModelMessagePublished(object sender, string e)
@@ -62,10 +71,14 @@ namespace ExamSystemWithoutPrism.ViewModel
                 switch (questionAnswerViewType)
                 {
                     case QuestionAnswerViewType.Review:
+                        _reviewViewModel.RefreshReviewModel(_questionsViewModel.QuestionAnswerModels);
+                        SelectedViewModel = _reviewViewModel as IQuestionAnswerViewModel;
                         break;
                     case QuestionAnswerViewType.Question:
+                        SelectedViewModel = _questionsViewModel as IQuestionAnswerViewModel;
                         break;
                     case QuestionAnswerViewType.Result:
+                        SelectedViewModel = _resultViewModel as IQuestionAnswerViewModel;
                         break;
                 }
             }

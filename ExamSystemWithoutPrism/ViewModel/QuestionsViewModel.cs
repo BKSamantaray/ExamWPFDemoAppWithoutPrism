@@ -15,15 +15,15 @@ namespace ExamSystemWithoutPrism.ViewModel
 {
     public class QuestionsViewModel : BaseViewModel, IQuestionAnswerViewModel
     {
-        private const int EXAM_TOTAL_QUESTION_NUMBER = 5; // This can be configured in App.config
+        public const int EXAM_TOTAL_QUESTION_NUMBER = 8; // This can be configured in App.config
         private readonly string _userName;
         private readonly List<QuestionsAnswer> _allQuestionAnswers;
         private readonly List<int> _randomlyIndexNumber;
         private int _currentSequence = 0;
-        private DelegateCommand _previousCommand;
-        private DelegateCommand _nextCommand;
-        private DelegateCommand _reviewCommand;
-        private DelegateCommand _submitCommand;
+        private readonly DelegateCommand _previousCommand;
+        private readonly DelegateCommand _nextCommand;
+        private readonly DelegateCommand _reviewCommand;
+        private readonly DelegateCommand _submitCommand;
         private QuestionAnswerModel _selectedQuestionAnswerModel;
 
         public event EventHandler<string> QuestionAnswerVModelMessagePublished;
@@ -139,11 +139,12 @@ namespace ExamSystemWithoutPrism.ViewModel
                 }
             }
         }
-        private void LoadQuestionWithOptions(int index)
+        public void LoadQuestionWithOptions(int index)
         {
             if (QuestionAnswerModels != null && QuestionAnswerModels.Count > 0)
             {
                 SelectedQuestionAnswerModel = QuestionAnswerModels[index];
+                _currentSequence = index;
             }
         }
 
@@ -176,7 +177,7 @@ namespace ExamSystemWithoutPrism.ViewModel
             if (e.PropertyName == "IsOptionSelected")
             {
                 var selectedOption = sender as QuestionOption;
-                if (selectedOption.IsOptionSelected == true)
+                if (selectedOption.OptionType==Models.OptionType.Radiobutton && selectedOption.IsOptionSelected == true)
                 {
                     foreach (var option in SelectedQuestionAnswerModel.QuestionOptions)
                     {
