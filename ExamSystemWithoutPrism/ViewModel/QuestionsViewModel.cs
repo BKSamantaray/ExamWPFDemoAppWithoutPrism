@@ -7,6 +7,7 @@ using ExamSystemWithoutPrism.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,7 @@ namespace ExamSystemWithoutPrism.ViewModel
 {
     public class QuestionsViewModel : BaseViewModel, IQuestionAnswerViewModel
     {
-        public const int EXAM_TOTAL_QUESTION_NUMBER = 8; // This can be configured in App.config
-        private readonly string _userName;
+        public readonly int _examTotalNumberQuestions; // This can be configured in App.config
         private readonly List<QuestionsAnswer> _allQuestionAnswers;
         private readonly List<int> _randomlyIndexNumber;
         private int _currentSequence = 0;
@@ -45,9 +45,9 @@ namespace ExamSystemWithoutPrism.ViewModel
 
 
         #region Constructor
-        public QuestionsViewModel(string userName)
+        public QuestionsViewModel()
         {
-            _userName = userName;
+            _examTotalNumberQuestions = Convert.ToInt32(ConfigurationManager.AppSettings["TotalQuestionNumbers"]);
             _allQuestionAnswers = ReadAllQuestionAnswers();
             _nextCommand = new DelegateCommand(NextCommandExecute, NextCommandCanExecute);
             _previousCommand = new DelegateCommand(PreviousCommandExecute, PreviousCommandCanExecute);
@@ -104,7 +104,7 @@ namespace ExamSystemWithoutPrism.ViewModel
         {
             Random random = new Random(0);
             List<int> randomlyIndexNumber = new List<int>();
-            for (int i = 0; i < EXAM_TOTAL_QUESTION_NUMBER; i++)
+            for (int i = 0; i < _examTotalNumberQuestions; i++)
             {
                 var randomNum = random.Next(0, _allQuestionAnswers.Count);
                 if (!randomlyIndexNumber.Any(x => x == randomNum))
@@ -197,6 +197,7 @@ namespace ExamSystemWithoutPrism.ViewModel
 
         private void SubmitCommandExecute(object obj)
         {
+            OnQuestionAnswerVModelMessagePublished(QuestionAnswerViewType.Result.ToString());
         }
 
         private bool ReviewCommandCanExecute(object obj)
@@ -226,12 +227,12 @@ namespace ExamSystemWithoutPrism.ViewModel
 
         private bool NextCommandCanExecute(object obj)
         {
-            return _currentSequence < EXAM_TOTAL_QUESTION_NUMBER - 1;
+            return _currentSequence < _examTotalNumberQuestions - 1;
         }
 
         private void NextCommandExecute(object obj)
         {
-            if (_currentSequence < EXAM_TOTAL_QUESTION_NUMBER - 1)
+            if (_currentSequence < _examTotalNumberQuestions - 1)
             {
                 _currentSequence += 1;
                 LoadQuestionWithOptions(_currentSequence);

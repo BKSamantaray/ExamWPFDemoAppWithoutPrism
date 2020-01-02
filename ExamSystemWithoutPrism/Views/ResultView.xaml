@@ -6,7 +6,31 @@
              xmlns:local="clr-namespace:ExamSystemWithoutPrism.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid DataContext="{Binding ResultData}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding ResultMessage}" Margin="15" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Total Question:" Margin="5" FontSize="20"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TotalQuestionNumber}" Margin="5" FontSize="20"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Attempted:" Margin="5" FontSize="20"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TotalAttemptedQuestion}" Margin="5" FontSize="20"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Not Attempted:" Margin="5" FontSize="20"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TotalNotAttemptedQuestion}" Margin="5" FontSize="20"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Correct:" Margin="5" FontSize="20"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding TotalCorrectAnswer}" Margin="5" FontSize="20"/>
+        </Grid>
     </Grid>
 </UserControl>

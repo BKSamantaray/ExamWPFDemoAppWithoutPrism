@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,7 @@
     <Compile Include="Models\QuestionAnswerViewType.cs" />
     <Compile Include="Models\QuestionOption.cs" />
     <Compile Include="Models\QuestionReviewModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Models\RuleRegulation.cs" />
     <Compile Include="Models\OptionType.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />

@@ -64,7 +64,7 @@ namespace ExamSystemWithoutPrism.ViewModel
             ReviewQuestionSelected?.Invoke(this, questionNumber);
         }
 
-        public void RefreshReviewModel(ObservableCollection<QuestionAnswerModel> questionAnswerModels)
+        public void RefreshReviewModel(IList<QuestionAnswerModel> questionAnswerModels)
         {
             if (questionAnswerModels != null && questionAnswerModels.Count > 0)
             {
