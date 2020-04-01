@@ -136,6 +136,8 @@ namespace ExamSystemWithoutPrism.ViewModel
                         break;
                     case QuestionAnswerViewType.Result:
                         _resultViewModel.LoadResult(_questionsViewModel.QuestionAnswerModels);
+                        _dispatcherTimer.Stop();
+                        RemainingTime = "00:00";
                         SelectedViewModel = _resultViewModel as IQuestionAnswerViewModel;
                         break;
                 }

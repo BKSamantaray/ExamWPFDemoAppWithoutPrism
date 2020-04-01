@@ -30,7 +30,7 @@ namespace ExamSystemWithoutPrism.ViewModel
                 ResultData = new ResultModel();
                 ResultData.TotalQuestionNumber = questionAnswerModels.Count;
                 ResultData.TotalAttemptedQuestion = questionAnswerModels.Select(x => x.QuestionOptions.Where(y => y.IsOptionSelected)).SelectMany(x => x).Count();
-                ResultData.TotalNotAttemptedQuestion= questionAnswerModels.Select(x => x.QuestionOptions.Where(y => !y.IsOptionSelected)).SelectMany(x => x).Count();
+                ResultData.TotalNotAttemptedQuestion = ResultData.TotalQuestionNumber - ResultData.TotalAttemptedQuestion;
                 ResultData.TotalCorrectAnswer = questionAnswerModels.Select(x => new
                 {
                     answer = x.Answer,
